@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/jhonatheberson/Easy-Church/issues"
   },
-  "homepage": "https://github.com/jhonatheberson/Easy-Church#readme"
+  "homepage": "https://github.com/jhonatheberson/Easy-Church#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^4.0.0"
+  }
 }
