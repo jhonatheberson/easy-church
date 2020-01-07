@@ -3,10 +3,9 @@
   "version": "4.1.0",
   "husky": {
     "hooks": {
-      "pre-commit": "echo 'teste'",
-      "...": "..."
+      "pre-commit": "echo 'teste'"
     }
-  }
+  },
   "lint-staged":{
     "*.js": ["eslint --fix",
       "cross-env CI=true npm test --bail --findRelatedTests",
