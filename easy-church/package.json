@@ -2,10 +2,11 @@
   "name": "adonis-api-app",
   "version": "4.1.0",
   "husky": {
-        "hooks": {
-            "pre-commit": "echo 'teste'"
-        }
-  },
+    "hooks": {
+      "pre-commit": "echo 'teste'",
+      "...": "..."
+    }
+  }
   "lint-staged":{
     "*.js": ["eslint --fix",
       "cross-env CI=true npm test --bail --findRelatedTests",
