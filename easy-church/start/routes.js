@@ -17,3 +17,10 @@
 const Route = use('Route')
 
 Route.post('/register', 'AuthController.register')  //chamando o controler e o metodo nesse caso o register
+Route.post('/authenticate', 'AuthController.authenticate')  //chamando o controler e o metodo nesse caso o register
+Route.post('/registermember', 'MemberController.registermember')  //chamando o controler e o metodo nesse caso o register
+
+Route.get('/members', 'MemberController.members')  //chamando o controler e o metodo nesse caso o register
+
+
+Route.get('/app', "AppController.index").middleware(['auth']);

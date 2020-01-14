@@ -3,15 +3,19 @@
 const User = use('App/Models/User') // pegadondo o models user para ser usado
 
 class AuthController {
-  assync register({request}) { //pegando dados do banco
-    const data = request.only(['username', 'email', 'password'])
+    async register({request}) { //pegando dados do banco
+      const data = request.only(['username', 'email', 'password'])
 
-  const user =  await User.create(data)
+      const user =  await User.create(data)
 
-  return user
+      return user
   }
-  assync authenticate() {
+  async authenticate({request, auth}) {
+      const {email, password} =  request.all()
 
+      const token = await auth.attempt(email, password)
+
+      return token
   }
 }
 
