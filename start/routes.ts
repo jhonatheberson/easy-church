@@ -32,4 +32,7 @@ Route.get("health", async ({ response }) => {
 });
 
 Route.get("users", "UsersController.index");
-Route.post("user", "UsersController.store");
+Route.post("users", "UsersController.store");
+Route.put("users", "UsersController.update");
+
+Route.post("sessions", "SessionsController.store");
