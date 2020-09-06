@@ -5,7 +5,9 @@ import { schema, rules } from "@ioc:Adonis/Core/Validator";
 
 export default class UsersController {
   public async index({ response }) {
-    const user = await User.all();
+    const user = await User.query().preload("churchs", (query) => {
+      query.preload("addres");
+    });
 
     if (!user) {
       return response.status(401).json({ error: "has no user" });
@@ -15,8 +17,6 @@ export default class UsersController {
   }
 
   public async store({ request, response }) {
-    const body = request.post();
-
     const postsSchema = schema.create({
       name: schema.string({}, [rules.alpha()]),
       email: schema.string({}, [
