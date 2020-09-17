@@ -7,11 +7,20 @@
     "start": "node ace serve --watch",
     "lint": "eslint . --ext=.ts"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
   "devDependencies": {
     "@adonisjs/assembler": "^2.0.0",
     "adonis-preset-ts": "^1.0.4",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.8.0",
     "eslint-plugin-adonis": "^1.0.15",
+    "husky": "^4.3.0",
     "pino-pretty": "^4.2.0",
     "typescript": "^4.0.2",
     "youch": "^2.0.10",
@@ -31,5 +40,10 @@
     "proxy-addr": "^2.0.6",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
