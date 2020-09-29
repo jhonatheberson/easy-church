@@ -4,7 +4,7 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 export default class UsersController {
-  public async index({ response }) {
+  public async index ({ response }) {
     const user = await User.all()
 
     if (!user) {
@@ -14,7 +14,7 @@ export default class UsersController {
     return response.status(200).json(user)
   }
 
-  public async store({ request, response }) {
+  public async store ({ request, response }) {
     const postsSchema = schema.create({
       name: schema.string({}, [rules.alpha()]),
       email: schema.string({}, [
@@ -43,7 +43,7 @@ export default class UsersController {
     return response.json({ user })
   }
 
-  public async update({ request, auth, response }) {
+  public async update ({ request, auth, response }) {
     const body = request.all()
 
     await auth.authenticate()

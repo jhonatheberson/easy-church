@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/semi */
-import test from 'japa';
-import supertest from 'supertest';
-import Database from '@ioc:Adonis/Lucid/Database';
+import test from 'japa'
+import supertest from 'supertest'
+import Database from '@ioc:Adonis/Lucid/Database'
 
-const BASE_URL = `http://${process.env.HOST}:${process.env.PORT}`;
+const BASE_URL = `http://${process.env.HOST}:${process.env.PORT}`
 
 test.group('User', (group) => {
   test('list Users ', async () => {
@@ -13,11 +13,11 @@ test.group('User', (group) => {
     const { text } = await supertest(BASE_URL)
       .get('/users')
       .expect('Content-Type', /json/)
-      .expect(200);
+      .expect(200)
 
-    const body = JSON.parse(text); // convert string in json;
-    console.log(body);
-  });
+    const body = JSON.parse(text) // convert string in json;
+    console.log(body)
+  })
 
   test('Create User', async () => {
     const { text } = await supertest(BASE_URL)
@@ -30,11 +30,11 @@ test.group('User', (group) => {
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(200);
+      .expect(200)
 
-    const body = JSON.parse(text); // convert string in json
-    console.log(body.user.name);
-  });
+    const body = JSON.parse(text) // convert string in json
+    console.log(body.user.name)
+  })
 
   //test('Update User', async (assert) => {
   // const { body } = await supertest(BASE_URL)
@@ -60,10 +60,10 @@ test.group('User', (group) => {
   //});
 
   group.beforeEach(async () => {
-    await Database.beginGlobalTransaction(); // isso faz que nada fique no banco
-  });
+    await Database.beginGlobalTransaction() // isso faz que nada fique no banco
+  })
 
   group.afterEach(async () => {
-    await Database.rollbackGlobalTransaction(); //isso faz que nada fique no banco depois
-  });
-});
+    await Database.rollbackGlobalTransaction() //isso faz que nada fique no banco depois
+  })
+})
