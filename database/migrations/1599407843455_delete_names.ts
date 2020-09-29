@@ -1,17 +1,17 @@
-import BaseSchema from "@ioc:Adonis/Lucid/Schema";
+import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class People extends BaseSchema {
-  protected tableName = "people";
+  protected tableName = 'people'
 
-  public async up() {
+  public async up () {
     this.schema.table(this.tableName, (table) => {
-      table.renameColumn("name", "surname");
-    });
+      table.renameColumn('name', 'surname')
+    })
   }
 
-  public async down() {
+  public async down () {
     this.schema.table(this.tableName, (table) => {
-      table.renameColumn("surname", "name");
-    });
+      table.renameColumn('surname', 'name')
+    })
   }
 }

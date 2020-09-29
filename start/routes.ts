@@ -18,21 +18,21 @@
 |
 */
 
-import Route from "@ioc:Adonis/Core/Route";
-import HealthCheck from "@ioc:Adonis/Core/HealthCheck";
+import Route from '@ioc:Adonis/Core/Route'
+import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 
-Route.get("/", async () => {
-  return { hello: "world" };
-});
+Route.get('/', async () => {
+  return { hello: 'world' }
+})
 
-Route.get("health", async ({ response }) => {
-  const report = await HealthCheck.getReport();
+Route.get('health', async ({ response }) => {
+  const report = await HealthCheck.getReport()
 
-  return report.healthy ? response.ok(report) : response.badRequest(report);
-});
+  return report.healthy ? response.ok(report) : response.badRequest(report)
+})
 
-Route.get("users", "UsersController.index");
-Route.post("users", "UsersController.store");
-Route.put("users", "UsersController.update");
+Route.get('users', 'UsersController.index')
+Route.post('users', 'UsersController.store')
+Route.put('users', 'UsersController.update')
 
-Route.post("sessions", "SessionsController.store");
+Route.post('sessions', 'SessionsController.store')

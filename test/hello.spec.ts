@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/semi */
 import test from 'japa';
 import Database from '@ioc:Adonis/Lucid/Database';
 

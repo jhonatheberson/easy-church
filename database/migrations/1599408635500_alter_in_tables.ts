@@ -1,23 +1,23 @@
-import BaseSchema from "@ioc:Adonis/Lucid/Schema";
+import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class Churches extends BaseSchema {
-  protected tableName = "churches";
+  protected tableName = 'churches'
 
-  public async up() {
+  public async up () {
     this.schema.table(this.tableName, (table) => {
-      table.dropColumn("addres_id");
-    });
+      table.dropColumn('addres_id')
+    })
   }
 
-  public async down() {
+  public async down () {
     this.schema.table(this.tableName, (table) => {
       table
-        .integer("addres_id")
+        .integer('addres_id')
         .unsigned()
-        .references("id")
-        .inTable("addres")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
-    });
+        .references('id')
+        .inTable('addres')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+    })
   }
 }
