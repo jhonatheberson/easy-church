@@ -56,7 +56,7 @@
 
 ## About
 
-🌌 Easy Church - is a church management system, using [AdonisJS](https://preview.adonisjs.com/guides/quick-start) version 5.0, with typescript using development techniques like Test-driven development (TDD) using [Japa](https://github.com/thetutlage/japa#test-your-apps)tiny Node.js test runner
+⛪ Easy Church - is a church management system, using [AdonisJS](https://preview.adonisjs.com/guides/quick-start) version 5.0, with typescript using development techniques like Test-driven development (TDD) using [Japa](https://github.com/thetutlage/japa#test-your-apps) tiny Node.js test runner
 
 ---
 
@@ -127,8 +127,8 @@ Both Frontend and Mobile need the Backend to be running to work. -->
 ### Pre-requisites
 
 Before you begin, you will need to have the following tools installed on your machine:
-[Git] (https://git-scm.com), [Node.js] (https://nodejs.org/en/).
-In addition, it is good to have an editor to work with the code like [VSCode] (https://code.visualstudio.com/)
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+In addition, it is good to have an editor to work with the code like [VSCode](https://code.visualstudio.com/)
 
 #### Rodando o Backend (servidor)
 
