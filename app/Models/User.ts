@@ -10,36 +10,76 @@ import {
 import Church from './Church'
 
 export default class User extends BaseModel {
+  /**
+   * @param  {true}} {isPrimary
+   * @returns number
+   */
   @column({ isPrimary: true })
   public id: number
 
+  /**
+   * @param  {} {}
+   * @param  {string} publicname
+   * @returns string
+   */
   @column({})
   public name: string
 
+  /**
+   * @param  {} {}
+   * @param  {string} publicemail
+   * @returns string
+   */
   @column({})
   public email: string
 
+  /**
+   * Foreign key
+   * @param  {number} publicpersonId
+   * @returns number
+   */
   @column()
-  public password: string
+  public personId: number
 
-  @column()
-  public addres: number
-
-  @column()
-  public rememberMeToken?: string
-
-  @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
-
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
-
-  // Foreign key
+  /**
+   Foreign key churchId
+   * @param  {number} publicchurchId
+   * @returns number
+   */
   @column()
   public churchId: number
 
+  /**
+   * @param  {string} publicrememberMeToken?
+   * @returns string
+   */
+  @column()
+  public rememberMeToken?: string
+
+  /**
+   * @param  {string} publicpassword
+   * @returns string
+   */
+  @column()
+  public password: string
+
+  /**
+   * @param  {true}} {autoCreate
+   * @returns DateTime
+   */
+  @column.dateTime({ autoCreate: true })
+  public createdAt: DateTime
+
+  /**
+   * @param  {true} {autoCreate
+   * @param  {true}} autoUpdate
+   * @returns DateTime
+   */
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  public updatedAt: DateTime
+
   @beforeSave()
-  public static async hashPassword (user: User) {
+  public static async hashPassword(user: User) {
     if (user.$dirty.password) {
       user.password = await Hash.make(user.password)
     }
