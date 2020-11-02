@@ -9,6 +9,7 @@ export default class Users extends BaseSchema {
         .foreign('person_id')
         .references('id')
         .inTable('people')
+        .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table
         .foreign('church_id')
@@ -19,6 +20,9 @@ export default class Users extends BaseSchema {
   }
 
   public async down() {
-    this.schema.table(this.tableName, (table) => {})
+    this.schema.table(this.tableName, (table) => {
+      table.dropForeign(['person_id'])
+      table.dropForeign(['church_id'])
+    })
   }
 }
